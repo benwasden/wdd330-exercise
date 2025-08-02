@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "WDD330 Final - Health",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html",
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html",
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
     "format": "prettier --write ."
   },
