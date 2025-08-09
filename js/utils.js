@@ -27,9 +27,9 @@ export function getParam(param) {
   const urlParams = new URLSearchParams(queryString);
   const product = urlParams.get(param);
 
-// This checks if product exists
+  // This checks if product exists
   if (product) return product;
-  return null
+  return null;
 }
 
 export function renderListWithTemplate(
@@ -47,8 +47,6 @@ export function renderListWithTemplate(
   const combinedHtml = htmlStrings.join("");
   parentElement.insertAdjacentHTML(position, combinedHtml);
 }
-
-
 
 export function renderWithTemplate(template, parentElement, data, callback) {
   parentElement.innerHTML = template;
@@ -72,6 +70,4 @@ export async function loadHeaderFooter() {
 
   renderWithTemplate(headerTemplate, headerElement);
   renderWithTemplate(footerTemplate, footerElement);
-
 }
-
