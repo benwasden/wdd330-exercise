@@ -14,6 +14,7 @@ muscles.forEach((muscle) => {
     muscleSelector.appendChild(item);
 })
 
+
 // Filling in workouts
 const difficulty = document.querySelector("#difficulty");
 const workoutList = document.querySelector(".workout-container");
@@ -30,21 +31,21 @@ muscleSelector.addEventListener("change", async function () {
         let requestedInfo = `muscle=${this.value}`
         let workouts = await getExercises(requestedInfo);
 
-        console.log("just muscle");
+        // console.log("just muscle");
         displayExercises(workouts);
     }
     else if (difficulty.value != "" && muscleSelector.value == "") {
         let requestedInfo = `difficulty=${difficulty.value}`
         let workouts = await getExercises(requestedInfo);
 
-        console.log("just difficulty");
+        // console.log("just difficulty");
         displayExercises(workouts);
     }
     else {
         let requestedInfo = `muscle=${this.value}&difficulty=${difficulty.value}`;
         let workouts = await getExercises(requestedInfo);
 
-        console.log("both");
+        // console.log("both");
         displayExercises(workouts);
     }
 })
@@ -55,29 +56,29 @@ difficulty.addEventListener("change", async function () {
         let requestedInfo = `difficulty=${this.value}`
         let workouts = await getExercises(requestedInfo);
 
-        console.log("just difficulty");
+        // console.log("just difficulty");
         displayExercises(workouts);
     }
     else if (muscleSelector.value != "" && difficulty.value == "") {
         let requestedInfo = `muscle=${muscleSelector.value}`
         let workouts = await getExercises(requestedInfo);
 
-        console.log("just muscle");
+        // console.log("just muscle");
         displayExercises(workouts);
     }
     else {
         let requestedInfo = `muscle=${muscleSelector.value}&difficulty=${this.value}`;
         let workouts = await getExercises(requestedInfo);
 
-        console.log("both");
+        // console.log("both");
         displayExercises(workouts);
     }
 })
 
 // ***************
-// Format for displaying exercises
 // ***************
 
+// Format for displaying exercises
 const displayExercises = (workouts) => {
     if (workouts.length != 0) {
         workouts.forEach((workout) => {

@@ -28,12 +28,22 @@ export async function getRecipesByCategory(category) {
   }
 }
 
-// export async function getRecipeInfo(mealID) {
-//   const response = await fetch(`www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`);
-//   const meal = await response.json();
-//   console.log(meal);
-//   return meal;
-// }
+export async function getRecipeInfo(mealID) {
+  try {
+    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`);
+    if (response.ok) {
+      const data = await response.json();
+      const meal = data.meals;
+      // console.log(meal);
+
+      return meal;
+    } else {
+      throw new Error(await response.text());
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 
 // *********************
