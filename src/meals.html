@@ -20,30 +20,32 @@
   <body>
     <header class="divider" id="main-header">
       <div class="logo">
-        <img src="images/exercise.webp" alt="tent image for logo" />
-        <a href="index.html">Home</a>
+        <img src="images/exercise.webp" alt="Health app Logo" />
+        <a href="index.html">Health App</a>
       </div>
       <button title="Hamburger Menu Button" id="menu"></button>
       <nav id="animateme">
         <ul class="menuLinks">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="meals.html">Meals</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="meals.html" class="active">Meals</a></li>
           <li><a href="exercises.html">Exercises</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <p>Select a category:</p>
-      <select name="category" id="category">
-        <option value="">Select a category...</option>
-        <option value="Beef">Beef</option>
-        <option value="Breakfast">Breakfast</option>
-        <option value="Chicken">Chicken</option>
-        <option value="Dessert">Dessert</option>
-        <option value="Pasta">Pasta</option>
-        <option value="Vegetarian">Vegetarian</option>
-      </select>
-      <div class="meal-container">
+      <div class="category-select">
+      <p>Select Meal Category</p>
+        <select name="category" id="category">
+          <option value="">Select a category...</option>
+          <option value="Beef">Beef</option>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Chicken">Chicken</option>
+          <option value="Dessert">Dessert</option>
+          <option value="Pasta">Pasta</option>
+          <option value="Vegetarian">Vegetarian</option>
+        </select>
+      </div>
+      <div class="meal-container" id="cards">
       </div>
       <dialog id="meal-dialog"></dialog>
     </main>

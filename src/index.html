@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WDD 330 - Health App</title>
 
+    <script src="js/index.js" type="module"></script>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,8 +20,8 @@
   <body>
     <header class="divider" id="main-header">
       <div class="logo">
-        <img src="images/exercise.webp" alt="tent image for logo" />
-        <a href="index.html">Home</a>
+        <img src="images/exercise.webp" alt="Health app Logo" />
+        <a href="index.html">Health App</a>
       </div>
       <button title="Hamburger Menu Button" id="menu"></button>
       <nav id="animateme">
@@ -38,6 +39,32 @@
           alt="hero image of man running"
           width="600"
         />
+      </div>
+      <section id="foryou">
+        <h2>Health App</h2>
+        <table id="uplifiting">
+          <tr>
+            <td>Welcome to Ben Wasden's WDD330 project! The purpose of this app is to provide meal and exercise options for users to help meet their specific criteria. Below, you can also track your exercise goals for the day. Thanks for visiting!</td>
+          </tr>
+        </table>
+      </section>
+      <div class="home-card">
+        <div class="home-anim">
+          <label for="calories">Calories Burned</label>
+          <p class="small">Aim for 200 calories!</p>
+          <input type="number" id="calorie-count" step="20" />
+        </div>
+        <div class="home-anim">
+          <label for="minutes">Minutes Exercised</label>
+          <p class="small">Aim for 30 minutes!</p>
+          <input type="number" id="minutes" step="1" />
+        </div>
+      </div>
+      <div class="home-card">
+        <div class="bar-chart">
+          <div class="bar ex-calories"><span id="cal-count-bar"></span></div>
+          <div class="bar ex-minutes"><span id="minutes-bar"></span></div>
+        </div>
       </div>
     </main>
     <footer id="main-footer">&copy;2025 | WDD 330 | Ben Wasden</footer>
