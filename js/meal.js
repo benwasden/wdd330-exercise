@@ -2,7 +2,7 @@ import { getRecipesByCategory } from "./data";
 
 // Element selection for meal viewer
 const category = document.querySelector("#category");
-const mealList = document.querySelector("#meal-container");
+const mealList = document.querySelector(".meal-container");
 
 // Event listener on select dropdown to display the meals for the requested category
 category.addEventListener("change", async function () {
@@ -17,7 +17,7 @@ category.addEventListener("change", async function () {
 // Format to display meals, creating a card for each item
 const displayMeals = (meals) => {
   meals.forEach((meal) => {
-    let item = document.createElement("li");
+    let item = document.createElement("section");
     let mealName = document.createElement("h2");
     let mealImg = document.createElement("img");
 
