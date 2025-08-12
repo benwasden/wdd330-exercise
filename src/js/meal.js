@@ -1,4 +1,4 @@
-import { getRecipesByCategory } from "./data";
+import { getRecipesByCategory, getRecipeInfo } from "./data";
 
 // Element selection for meal viewer
 const category = document.querySelector("#category");
@@ -13,6 +13,9 @@ category.addEventListener("change", async function () {
 
   displayMeals(mealInfo);
 });
+
+const mealItem = document.querySelector(".meal-item");
+const dialog = document.querySelector("#meal-dialog");
 
 // Format to display meals, creating a card for each item
 const displayMeals = (meals) => {
@@ -31,13 +34,65 @@ const displayMeals = (meals) => {
     item.setAttribute("class", "meal-item");
 
     mealList.appendChild(item);
+  
+  // Adding dialog click for each recipe
+  item.addEventListener("click", async function () {
+      let selectedMeal = meal.idMeal;
+      let recipe = await getRecipeInfo(selectedMeal);
+      console.log(recipe);
+      displayRecipe(recipe);
+      // let ingredients = getIngredients(recipe);
+    })
+
   });
 };
 
-// const mealItem = document.querySelector(".meal-item");
-// const dialog = document.querySelector("#meal-dialog");
+function displayRecipe(info) {
+  dialog.innerHTML = '';
 
-// mealItem.addEventListener("click", async function () {
-//   dialog.innerHTML = "";
-//   const selectedMeal = this.value[0];
-// })
+  dialog.innerHTML = `
+  <button id='closeModal'>X</button>
+  <h4>${info[0].strMeal}</h4>
+  <p><strong>Area:</strong> ${info[0].strArea}</p>
+  <p><strong>Category:</strong> ${info[0].strCategory}</p>
+
+  <p><strong>Instructions</strong></p> ${info[0].strInstructions}`
+
+  // getIngredients(info);
+  dialog.showModal();
+
+  closeModal.addEventListener('click', () => {
+      dialog.close();
+  });
+}
+
+// function getIngredients(meal) {
+//   const divIng = document.querySelector(".ingredients");
+//   let ingredients = document.createElement("ul");
+
+//   // let listIng = [];
+//   let i = 1;
+//   while (i <= 20) {
+//     if (meal.strIngredient + i == "") {
+//       break;
+//     }
+//     else {
+//       let ingredient = document.createElement("li");
+//       ingredient.innerHTML = `${meal.strIngredient + i} - ${meal.strMeasure + i}`;
+//       ingredients.appendChild(ingredient);
+//       i++;
+//     }
+//   }
+//     // for (let i = 1; i <= 20; i++) {
+//     //   if (`${meal.strIngredient}${i}`) {
+//     //     let ingredient = document.createElement("li");
+//     //     ingredient.textContent = `${`${meal.strIngredient}${i}`} - ${`${meal.strMeasure}${i}`}`;
+//     //     ingredients.appendChild(ingredient);
+
+        
+//     //   } else {
+//     //     break;
+//     //   }
+//     // }
+//     divIng.appendChild(ingredients);
+// }
