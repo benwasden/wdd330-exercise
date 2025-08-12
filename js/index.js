@@ -1,1 +1,3 @@
-import { getRecipeByCategory } from "./meal";
+import { navBar } from "./data";
+
+navBar();

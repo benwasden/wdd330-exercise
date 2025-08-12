@@ -1,4 +1,6 @@
-import { getRecipesByCategory, getRecipeInfo } from "./data";
+import { getRecipesByCategory, getRecipeInfo, navBar } from "./data";
+
+navBar();
 
 // Element selection for meal viewer
 const category = document.querySelector("#category");
@@ -14,8 +16,10 @@ category.addEventListener("change", async function () {
   displayMeals(mealInfo);
 });
 
-const mealItem = document.querySelector(".meal-item");
+// const mealItem = document.querySelector(".meal-item");
 const dialog = document.querySelector("#meal-dialog");
+let mealDetails = document.createElement("detail");
+dialog.appendChild(mealDetails);
 
 // Format to display meals, creating a card for each item
 const displayMeals = (meals) => {
@@ -41,16 +45,15 @@ const displayMeals = (meals) => {
         let recipe = await getRecipeInfo(selectedMeal);
         console.log(recipe);
         displayRecipe(recipe);
-        // let ingredients = getIngredients(recipe);
     })
 
   });
 };
 
 function displayRecipe(info) {
-  dialog.innerHTML = '';
+  mealDetails.innerHTML = '';
 
-  dialog.innerHTML = `
+  mealDetails.innerHTML = `
   <button id="closeModal">X</button>
   <h4>${info[0].strMeal}</h4>
   <p><strong>Area:</strong> ${info[0].strArea}</p>
@@ -58,7 +61,7 @@ function displayRecipe(info) {
 
   <p><strong>Instructions</strong></p> ${info[0].strInstructions}`
 
-  // getIngredients(info);
+  // getIngredients(info[0]);
   dialog.showModal();
 
   closeModal.addEventListener("click", () => {
@@ -70,29 +73,16 @@ function displayRecipe(info) {
 //   const divIng = document.querySelector(".ingredients");
 //   let ingredients = document.createElement("ul");
 
-//   // let listIng = [];
-//   let i = 1;
-//   while (i <= 20) {
-//     if (meal.strIngredient + i == "") {
-//       break;
-//     }
-//     else {
-//       let ingredient = document.createElement("li");
-//       ingredient.innerHTML = `${meal.strIngredient + i} - ${meal.strMeasure + i}`;
-//       ingredients.appendChild(ingredient);
-//       i++;
-//     }
-//   }
-//     // for (let i = 1; i <= 20; i++) {
-//     //   if (`${meal.strIngredient}${i}`) {
-//     //     let ingredient = document.createElement("li");
-//     //     ingredient.textContent = `${`${meal.strIngredient}${i}`} - ${`${meal.strMeasure}${i}`}`;
-//     //     ingredients.appendChild(ingredient);
-
+//     for (let i = 1; i <= 20; i++) {
+//       if (`${meal.strIngredient}${i}` != "") {
+//         let ingredient = document.createElement("li");
+//         ingredient.textContent = `${`${meal.strIngredient}${i}`} - ${`${meal.strMeasure}${i}`}`;
+//         console.log(ingredient);
+//         ingredients.appendChild(ingredient);
         
-//     //   } else {
-//     //     break;
-//     //   }
-//     // }
+//       } else {
+//         break;
+//       }
+//     }
 //     divIng.appendChild(ingredients);
 // }

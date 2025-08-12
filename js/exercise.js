@@ -1,6 +1,7 @@
-import { getExercises } from "./data";
+import { getExercises, navBar } from "./data";
 import data from "../data/muscleOptions.json" assert { type: "json" };
 
+navBar();
 
 // Fill in select info
 const muscleSelector = document.querySelector("#muscles");

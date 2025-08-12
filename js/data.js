@@ -7,6 +7,18 @@ export function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
 }
 
+// Variables for menu button in mobile view
+export function navBar() {
+  const hamButton = document.querySelector('#menu');
+  const navigation = document.querySelector('#animateme');
+
+  // Event listener for menu button
+  hamButton.addEventListener('click', () => {
+      navigation.classList.toggle('open');
+      hamButton.classList.toggle('open');
+  });
+}
+
 // *********************
 // Meals API
 // *********************
