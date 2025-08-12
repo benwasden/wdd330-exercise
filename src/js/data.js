@@ -39,8 +39,8 @@ export async function getRecipesByCategory(category) {
 // *********************
 // Exercise API
 // *********************
-export async function getExercises(muscle, difficulty) {
-  const url = `https://api.api-ninjas.com/v1/exercises?muscle=${muscle}&difficulty=${difficulty}`;
+export async function getExercises(requestedInfo) {
+  const url = `https://api.api-ninjas.com/v1/exercises?${requestedInfo}`;
 
   const options = {
     method: "GET",
