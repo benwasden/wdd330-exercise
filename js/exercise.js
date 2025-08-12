@@ -18,6 +18,7 @@ muscles.forEach((muscle) => {
 // Filling in workouts
 const difficulty = document.querySelector("#difficulty");
 const workoutList = document.querySelector(".workout-container");
+const dialog = document.querySelector("#meal-dialog");
 
 // ***************
 // Two select options
@@ -69,7 +70,7 @@ difficulty.addEventListener("change", async function () {
     else {
         let requestedInfo = `muscle=${muscleSelector.value}&difficulty=${this.value}`;
         let workouts = await getExercises(requestedInfo);
-
+        console.log(workouts);
         // console.log("both");
         displayExercises(workouts);
     }
@@ -91,10 +92,47 @@ const displayExercises = (workouts) => {
 
             item.appendChild(exerciseName);
             item.appendChild(challenge);
+            item.setAttribute("class", "workout-item");
 
             workoutList.appendChild(item);
+            
+            // Adding dialog click for each workout
+            item.addEventListener("click", () => {
+                displayExerciseInfo(workout);
+            })
         })
     } else {
         workoutList.innerHTML = `<h2>No workouts available for this option.</h2>`;
+    }
+}
+
+// Modal function for exercise page
+function displayExerciseInfo(info) {
+    dialog.innerHTML = '';
+
+    dialog.innerHTML = `
+    <button id="closeModal">X</button>
+    <h4>${info.name}</h4>
+    <p><strong>Muscle:</strong> ${info.muscle}</p>
+    <p><strong>Difficulty:</strong> ${info.difficulty}</p>
+    <p><strong>Required Equipment: </strong> ${checkEquipment(info.equipment)}</p>
+    <p><strong>Instructions</strong></p>
+    <p>${info.instructions}</p>`
+
+    dialog.showModal();
+
+    closeModal.addEventListener("click", () => {
+        dialog.close();
+    })
+}
+
+// Just a sanity check to see if any equipment is required.
+// The API returns an ugly format if there isn't any, so this
+// is tidying it up.
+function checkEquipment(equipment) {
+    if (equipment == "body_only") {
+        return "None needed!";
+    } else {
+        return equipment;
     }
 }

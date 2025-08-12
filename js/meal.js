@@ -35,13 +35,13 @@ const displayMeals = (meals) => {
 
     mealList.appendChild(item);
   
-  // Adding dialog click for each recipe
-  item.addEventListener("click", async function () {
-      let selectedMeal = meal.idMeal;
-      let recipe = await getRecipeInfo(selectedMeal);
-      console.log(recipe);
-      displayRecipe(recipe);
-      // let ingredients = getIngredients(recipe);
+    // Adding dialog click for each recipe
+    item.addEventListener("click", async function () {
+        let selectedMeal = meal.idMeal;
+        let recipe = await getRecipeInfo(selectedMeal);
+        console.log(recipe);
+        displayRecipe(recipe);
+        // let ingredients = getIngredients(recipe);
     })
 
   });
@@ -51,7 +51,7 @@ function displayRecipe(info) {
   dialog.innerHTML = '';
 
   dialog.innerHTML = `
-  <button id='closeModal'>X</button>
+  <button id="closeModal">X</button>
   <h4>${info[0].strMeal}</h4>
   <p><strong>Area:</strong> ${info[0].strArea}</p>
   <p><strong>Category:</strong> ${info[0].strCategory}</p>
@@ -61,7 +61,7 @@ function displayRecipe(info) {
   // getIngredients(info);
   dialog.showModal();
 
-  closeModal.addEventListener('click', () => {
+  closeModal.addEventListener("click", () => {
       dialog.close();
   });
 }
