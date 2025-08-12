@@ -29,7 +29,7 @@ const dialog = document.querySelector("#meal-dialog");
 // ***************
 muscleSelector.addEventListener("change", async function () {
     workoutList.innerHTML = "";
-    if (difficulty.value == "") {
+    if (difficulty.value == "" && this.value != "") {
         let requestedInfo = `muscle=${this.value}`
         let workouts = await getExercises(requestedInfo);
 
@@ -43,6 +43,9 @@ muscleSelector.addEventListener("change", async function () {
         // console.log("just difficulty");
         displayExercises(workouts);
     }
+    else if (muscleSelector.value == "" && difficulty.value == "") {
+        workoutList.innerHTML = "";
+    }
     else {
         let requestedInfo = `muscle=${this.value}&difficulty=${difficulty.value}`;
         let workouts = await getExercises(requestedInfo);
@@ -54,7 +57,7 @@ muscleSelector.addEventListener("change", async function () {
 
 difficulty.addEventListener("change", async function () {
     workoutList.innerHTML = "";
-    if (muscleSelector.value == "") {
+    if (muscleSelector.value == "" && this.value != "") {
         let requestedInfo = `difficulty=${this.value}`
         let workouts = await getExercises(requestedInfo);
 
@@ -68,10 +71,13 @@ difficulty.addEventListener("change", async function () {
         // console.log("just muscle");
         displayExercises(workouts);
     }
+    else if (muscleSelector.value == "" && difficulty.value == "") {
+        workoutList.innerHTML = "";
+    }
     else {
         let requestedInfo = `muscle=${muscleSelector.value}&difficulty=${this.value}`;
         let workouts = await getExercises(requestedInfo);
-        console.log(workouts);
+
         // console.log("both");
         displayExercises(workouts);
     }
@@ -82,6 +88,7 @@ difficulty.addEventListener("change", async function () {
 
 // Format for displaying exercises
 const displayExercises = (workouts) => {
+    workoutList.innerHTML = "";
     if (workouts.length != 0) {
         workouts.forEach((workout) => {
             let item = document.createElement("section");

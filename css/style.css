@@ -110,7 +110,7 @@ but it works fine? Not totally sure what to make of it. */
         font-family: var(--heading-font);
         font-size: 25px;
     }
-    & #category {
+    & select {
         font-size: 17px;
     }
 }
