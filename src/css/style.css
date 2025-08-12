@@ -119,7 +119,7 @@ but it works fine? Not totally sure what to make of it. */
     border-top: solid 1px;
     margin: 10px;
 }
-.meal-item {
+.meal-item, .workout-item {
     text-align: center;
     padding: 15px;
     margin: 15px auto;
@@ -141,6 +141,17 @@ but it works fine? Not totally sure what to make of it. */
             box-shadow: 0 0 30px gray;
         }
     }
+}
+.workout-item {
+    transition: transform .5s ease;
+    &:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 30px gray;
+    }
+}
+#no-workouts {
+    text-align: center;
+    margin: 15px;
 }
 #meal-dialog {
     padding: 1rem;

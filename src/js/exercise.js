@@ -20,6 +20,8 @@ muscles.forEach((muscle) => {
 const difficulty = document.querySelector("#difficulty");
 const workoutList = document.querySelector(".workout-container");
 const dialog = document.querySelector("#meal-dialog");
+let workoutDetails = document.createElement("detail");
+dialog.appendChild(workoutDetails);
 
 // ***************
 // Two select options
@@ -110,15 +112,15 @@ const displayExercises = (workouts) => {
             })
         })
     } else {
-        workoutList.innerHTML = `<h2>No workouts available for this option.</h2>`;
+        workoutList.innerHTML = `<h2 id="no-workouts">No workouts available for this option.</br>Sorry!</h2>`;
     }
 }
 
 // Modal function for exercise page
 function displayExerciseInfo(info) {
-    dialog.innerHTML = '';
+    workoutDetails.innerHTML = '';
 
-    dialog.innerHTML = `
+    workoutDetails.innerHTML = `
     <button id="closeModal">X</button>
     <h4>${info.name}</h4>
     <p><strong>Muscle:</strong> ${info.muscle}</p>
