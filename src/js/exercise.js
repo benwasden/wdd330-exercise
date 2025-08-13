@@ -1,5 +1,5 @@
 import { getExercises, navBar } from "./data.js";
-import data from "../data/muscleOptions.json" assert { type: "json" };
+import data from "../data/muscleOptions.json" with { type: "json" };
 
 navBar();
 
