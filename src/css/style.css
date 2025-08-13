@@ -104,10 +104,8 @@ nav.open {
     width: 100%;
     height: auto;
 }
-
 #foryou {
     text-align: center;
-    max-width: 500px;
     margin: 0 auto;
     border: solid 1px black;
     border-radius: 5px;
@@ -115,6 +113,19 @@ nav.open {
     margin: 8px;
     background-color: var(--primary-color);
     color: white;
+}
+.home-card {
+    text-align: center;
+    margin: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 5px;
+
+    & h3 {
+        margin-bottom: 8px;
+    }
 }
 
 /* This (+ all other nested CSS) is giving a parse error and I assume it's due to the nested css, 
