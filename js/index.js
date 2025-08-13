@@ -28,9 +28,19 @@ if (date == null) {
 }
 else if (today == date) {
     cal.value = getLocalStorage("calorie");
-    calorieBar();
+    if (cal.value == null) {
+        cal.value = null;
+    }
+    else {
+        calorieBar();
+    }
     min.value = getLocalStorage("minute");
-    minuteBar();
+    if (min.value == null) {
+        min.value = null;
+    }
+    else {
+        minuteBar();
+    }
 }
 else {
     setLocalStorage("day", today);
