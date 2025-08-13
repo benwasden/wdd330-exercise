@@ -33,22 +33,28 @@
       </nav>
     </header>
     <main class="divider">
-      <div class="hero">
-        <img
-          src="images/hero.webp"
-          alt="hero image of man running"
-          width="600"
-        />
+      <div class="head-container">
+        <div class="hero">
+          <picture>
+            <source srcset="images/hero.webp" media="(min-width: 700px)">
+            <img
+              src="images/hero-small.webp"
+              alt="hero image of man running"
+              width="500"
+            />
+          </picture>
+        </div>
+        <section id="foryou">
+          <h2>Health App</h2>
+          <table id="uplifiting">
+            <tr>
+              <td></br>Welcome to Ben Wasden's WDD330 project! The purpose of this app is to provide meal and exercise options for users to help meet their specific criteria. Below, you can also track your exercise goals for the day. Thanks for visiting!</td>
+            </tr>
+          </table>
+        </section>
       </div>
-      <section id="foryou">
-        <h2>Health App</h2>
-        <table id="uplifiting">
-          <tr>
-            <td>Welcome to Ben Wasden's WDD330 project! The purpose of this app is to provide meal and exercise options for users to help meet their specific criteria. Below, you can also track your exercise goals for the day. Thanks for visiting!</td>
-          </tr>
-        </table>
-      </section>
       <div class="home-card">
+        <h3>Exercise Tracker</h3>
         <div class="home-anim">
           <label for="calories">Calories Burned</label>
           <p class="small">Aim for 200 calories!</p>
