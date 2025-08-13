@@ -2,6 +2,7 @@ import { navBar, getLocalStorage, setLocalStorage } from "./data";
 
 navBar();
 
+// Getting bars/selecting elements
 const cal = document.querySelector("#calorie-count");
 const min = document.querySelector("#minutes");
 
@@ -9,17 +10,46 @@ const calBar = document.querySelector(".ex-calories");
 const minBar = document.querySelector(".ex-minutes");
 
 const encouragement = document.querySelector("#ex-bars");
-encouragement.textContent = "Please enter exercise details.";
-
 
 // Adding bar animation change
 cal.addEventListener("change", () => {
+    calorieBar();
+})
+
+min.addEventListener("change", () => {
+    minuteBar();
+})
+
+// localStorage for bars
+let date = getLocalStorage("day")
+const today = new Date().toISOString().split("T")[0];
+if (date == null) {
+    setLocalStorage("day", today);
+}
+else if (today == date) {
+    cal.value = getLocalStorage("calorie");
+    calorieBar();
+    min.value = getLocalStorage("minute");
+    minuteBar();
+}
+else {
+    setLocalStorage("day", today);
+    setLocalStorage("calorie", 0);
+    setLocalStorage("minute", 0);
+}
+
+
+// ***********
+// Constructing bars
+// ***********
+
+function calorieBar() {
     if (calBar.classList.contains("addedClass")) {
         calBar.classList.remove("addedClass");
     }
     let calories = cal.value;
     // console.log(calories);
-    document.querySelector("#cal-count-bar").innerHTML = `${calories}/200`
+    document.querySelector("#cal-count-bar").innerHTML = `${calories}/200 cal`;
     if (calories < 200) {
         calBar.style.setProperty("--target-height", `${calories}px`);
         calBar.classList.add("addedClass");
@@ -35,9 +65,23 @@ cal.addEventListener("change", () => {
             encouragement.textContent = "Wow, nice stretch goal!";
         }
     }
-})
+    setLocalStorage("calorie", calories);
+}
 
-min.addEventListener("change", () => {
+function minuteBar() {
+    if (minBar.classList.contains("addedClass")) {
+        minBar.classList.remove("addedClass");
+    }
     let minutes = min.value;
-    console.log(minutes);
-})
+    // console.log(minutes);
+    document.querySelector("#minutes-bar").innerHTML = `${minutes}/30 min`;
+    if (minutes < 30) {
+        minBar.style.setProperty("--target-height", `${minutes * 6.66}px`);
+        minBar.classList.add("addedClass");
+    }
+    else {
+        minBar.style.setProperty("--target-height", "200px");
+        minBar.classList.add("addedClass");
+    }
+    setLocalStorage("minute", minutes);
+}
