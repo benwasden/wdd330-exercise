@@ -53,24 +53,26 @@
           </table>
         </div>
       </div>
-      <div class="home-card">
-        <h3>Exercise Tracker</h3>
-        <div class="home-anim">
-          <p><strong>Calories Burned</strong></p>
-          <p class="small">Aim for 200 calories!</p>
-          <input type="number" id="calorie-count" step="20" />
+      <div id="home-both-cards">
+        <div class="home-card">
+          <h3>Exercise Tracker</h3>
+          <div class="home-anim">
+            <p><strong>Calories Burned</strong></p>
+            <p class="small">Aim for 200 calories!</p>
+            <input type="number" id="calorie-count" step="20" />
+          </div>
+          <div class="home-anim">
+            <p><strong>Minutes Exercised</strong></p>
+            <p class="small">Aim for 30 minutes!</p>
+            <input type="number" id="minutes" step="1" />
+          </div>
         </div>
-        <div class="home-anim">
-          <p><strong>Minutes Exercised</strong></p>
-          <p class="small">Aim for 30 minutes!</p>
-          <input type="number" id="minutes" step="1" />
-        </div>
-      </div>
-      <div class="home-card">
-        <h3 id="ex-bars">Please enter exercise details.</h3>
-        <div class="bar-chart">
-          <div class="bar ex-calories"><span id="cal-count-bar"></span></div>
-          <div class="bar ex-minutes"><span id="minutes-bar"></span></div>
+        <div class="home-card">
+          <h3 id="ex-bars">Please enter exercise details.</h3>
+          <div class="bar-chart">
+            <div class="bar ex-calories"><span id="cal-count-bar"></span></div>
+            <div class="bar ex-minutes"><span id="minutes-bar"></span></div>
+          </div>
         </div>
       </div>
     </main>

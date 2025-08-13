@@ -127,7 +127,6 @@ nav.open {
         margin-bottom: 8px;
     }
 }
-
 /* This (+ all other nested CSS) is giving a parse error and I assume it's due to the nested css, 
 but it works fine? Not totally sure what to make of it. */
 .category-select {
@@ -357,5 +356,9 @@ footer {
             color: white;
             padding: 8px;
         }
+    }
+    #home-both-cards {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
     }
 }
