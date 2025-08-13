@@ -1,4 +1,4 @@
-import { getExercises, navBar } from "./data";
+import { getExercises, navBar } from "./data.js";
 import data from "../data/muscleOptions.json" assert { type: "json" };
 
 navBar();

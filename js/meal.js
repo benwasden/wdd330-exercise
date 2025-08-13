@@ -1,4 +1,4 @@
-import { getRecipesByCategory, getRecipeInfo, navBar } from "./data";
+import { getRecipesByCategory, getRecipeInfo, navBar } from "./data.js";
 
 navBar();
 
