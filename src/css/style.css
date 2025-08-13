@@ -223,7 +223,7 @@ detail h4, detail p {
     margin: 1rem auto;
 
     border-bottom: solid 2px black;
-    padding: 0 0.5rem 1rem;
+    padding: 0 0.5rem 0;
     gap: 0.25rem;
 }
 .bar {
@@ -233,7 +233,7 @@ detail h4, detail p {
 	align-items: flex-end;
 	justify-content: center;
 	position: relative;
-	border-radius: 5px;
+	border-radius: 5px 5px 0 0;
 
 	color: white;
 	font-weight: bold;
