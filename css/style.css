@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #d93600;
+    --primary-color: #a32900;
     --secondary-color: #201e1f;
 
     --heading-font: "Funnel Display", sans-serif;
@@ -9,6 +9,10 @@
     margin: 0;
     padding: 0;
     font-family: var(--paragraph-font);
+}
+main {
+    /* max-width: 1600px; */
+    margin: 0 auto;
 }
 header {
     background-color: var(--primary-color);
@@ -96,7 +100,24 @@ nav.open {
   color: var(--font-body);
 }
 
-/* This is giving a parse error and I assume it's due to the nested css, 
+.hero img {
+    width: 100%;
+    height: auto;
+}
+
+#foryou {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    border: solid 1px black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 8px;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* This (+ all other nested CSS) is giving a parse error and I assume it's due to the nested css, 
 but it works fine? Not totally sure what to make of it. */
 .category-select {
     text-align: center;
@@ -116,7 +137,6 @@ but it works fine? Not totally sure what to make of it. */
 }
 
 #cards {
-    border-top: solid 1px;
     margin: 10px;
 }
 .meal-item, .workout-item {
@@ -143,6 +163,8 @@ but it works fine? Not totally sure what to make of it. */
     }
 }
 .workout-item {
+    background-color: var(--primary-color);
+    color: white;
     transition: transform .5s ease;
     &:hover {
         transform: scale(1.03);
@@ -203,7 +225,14 @@ dialog button {
     }
 }
 
-
+@keyframes grow {
+    from {
+        height: 0;
+    }
+    to {
+        height: var(--target-height);
+    }
+}
 
 footer {
     text-align: center;
@@ -241,5 +270,29 @@ footer {
     #summary {
         display: grid;
         grid-template-columns: 600px repeat(auto-fit, minmax(350px, 2fr))
+    }
+    #foryou {
+        position: absolute;
+        left: 2em;
+        top: 10em;
+        background-color: var(--secondary-color);
+        opacity: 0.8;
+        font-size: 18px;
+        max-width: 375px;
+        & h2 {
+            position: relative;
+            top: 20px;
+            left: -15px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 250px;
+            text-align: center;
+            padding: 5px;
+            font-size: 37px;
+        }
+        & td {
+            color: white;
+            padding: 8px;
+        }
     }
 }
