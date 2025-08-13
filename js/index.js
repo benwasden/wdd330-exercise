@@ -34,6 +34,7 @@ else if (today == date) {
     else {
         calorieBar();
     }
+    console.log(getLocalStorage("calorie"));
     min.value = getLocalStorage("minute");
     if (min.value == null) {
         min.value = null;
@@ -60,7 +61,7 @@ function calorieBar() {
     let calories = cal.value;
     // console.log(calories);
     document.querySelector("#cal-count-bar").innerHTML = `${calories}/200 cal`;
-    if (calories < 200) {
+    if (calories < 200 && calories > 0) {
         calBar.style.setProperty("--target-height", `${calories}px`);
         calBar.classList.add("addedClass");
         encouragement.textContent = "Keep it up! You're doing great!";
