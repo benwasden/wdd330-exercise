@@ -1,4 +1,4 @@
-import { navBar, getLocalStorage, setLocalStorage } from "./data";
+import { navBar, getLocalStorage, setLocalStorage } from "./data.js";
 
 navBar();
 
