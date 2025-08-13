@@ -58,10 +58,10 @@ function displayRecipe(info) {
   <h4>${info[0].strMeal}</h4>
   <p><strong>Area:</strong> ${info[0].strArea}</p>
   <p><strong>Category:</strong> ${info[0].strCategory}</p>
-
+  <div class="ingredients"></div>
   <p><strong>Instructions</strong></p> ${info[0].strInstructions}`
 
-  // getIngredients(info[0]);
+  getIngredients(info[0]);
   dialog.showModal();
 
   closeModal.addEventListener("click", () => {
@@ -69,20 +69,20 @@ function displayRecipe(info) {
   });
 }
 
-// function getIngredients(meal) {
-//   const divIng = document.querySelector(".ingredients");
-//   let ingredients = document.createElement("ul");
-
-//     for (let i = 1; i <= 20; i++) {
-//       if (`${meal.strIngredient}${i}` != "") {
-//         let ingredient = document.createElement("li");
-//         ingredient.textContent = `${`${meal.strIngredient}${i}`} - ${`${meal.strMeasure}${i}`}`;
-//         console.log(ingredient);
-//         ingredients.appendChild(ingredient);
-        
-//       } else {
-//         break;
-//       }
-//     }
-//     divIng.appendChild(ingredients);
-// }
+function getIngredients(meal) {
+  const divIng = document.querySelector(".ingredients");
+  let ingredients = document.createElement("ul");
+  
+  for (let i = 1; i <= 20; i++) {
+    if ((meal[`strIngredient${i}`]) != "") {
+      let ingredient = document.createElement("li");
+      ingredient.textContent = `${meal[`strIngredient${i}`]} - ${meal[`strMeasure${i}`]}`;
+      console.log(ingredient);
+      ingredients.appendChild(ingredient);
+      
+    } else {
+      break;
+    }
+  }
+  divIng.appendChild(ingredients);
+}
